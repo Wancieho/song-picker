@@ -1,18 +1,30 @@
-import React, { FC } from "react";
-import useSongs from "../../hooks/data";
+import React, { FC, useMemo } from "react";
 
-interface PickerProps {}
+import useSongs, { Song } from "../../hooks/data";
 
-const Picker: FC<PickerProps> = () => {
+const Picker: FC = () => {
   const { data: songs } = useSongs();
 
-  const randomInt = Math.floor(Math.random() * songs.length);
+  const randomSong: Song = useMemo(() => {
+    const randomInt = Math.floor(Math.random() * songs.length);
 
-  const randomSong = songs[randomInt];
+    return songs[randomInt];
+  }, [songs]);
 
   return (
     <div data-testid="Picker">
-      {randomSong.artist} {randomSong.name}
+      {songs && randomSong && (
+        <>
+          <h2>
+            {randomSong?.name} - {randomSong?.artist}
+          </h2>
+          <ol>
+            {songs.map((song) => (
+              <li>{song.name}</li>
+            ))}
+          </ol>
+        </>
+      )}
     </div>
   );
 };

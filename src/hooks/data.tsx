@@ -1,11 +1,22 @@
-const useSongs = () => {
-  enum ARTISTS {
-    STYX = "Styx",
-    EUROPE = "Europe",
-    KENNY_LOGGINS = "Kenny Loggins",
-  }
+enum ARTISTS {
+  STYX = "Styx",
+  EUROPE = "Europe",
+  KENNY_LOGGINS = "Kenny Loggins",
+}
 
-  const songs = [
+type Years = {
+  influenced: number;
+  released: number;
+};
+
+export type Song = {
+  artist: ARTISTS;
+  name: string;
+  years: Years;
+};
+
+const useSongs = () => {
+  const songs: Song[] = [
     {
       artist: ARTISTS.STYX,
       name: "Mr Roboto",
