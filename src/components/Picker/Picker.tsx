@@ -20,7 +20,7 @@ const Picker: FC = () => {
           </h2>
           <ol>
             {songs.map((song) => (
-              <li>{song.name}</li>
+              <li key={JSON.stringify(song)}>{song.name}</li>
             ))}
           </ol>
         </>
