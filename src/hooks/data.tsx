@@ -60,6 +60,7 @@ enum ARTISTS {
   DEMONS_AND_WIZARDS = "Demons & Wizards",
   DEFTONES = "Deftones",
   DAMN_YANKEES = "Damn Yankees",
+  PHANTOM_BLUE = "Phantom Blue",
 }
 
 type Years = {
@@ -153,6 +154,14 @@ const useSongs = () => {
       years: {
         influenced: 1990,
         released: 1990,
+      },
+    },
+    {
+      artist: ARTISTS.WHITESNAKE,
+      name: "Still Of The Night",
+      years: {
+        influenced: 1987,
+        released: 1987,
       },
     },
   ];
